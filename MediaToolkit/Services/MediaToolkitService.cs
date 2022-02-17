@@ -23,11 +23,12 @@ namespace MediaToolkit.Services
     /// <summary>
     /// Factory method.
     /// </summary>
-    public static IMediaToolkitService CreateInstance(string ffMpegPath)
+    public static IMediaToolkitService CreateInstance(string ffMpegPath, string ffMpegProbePath)
     {
       var options = new MediaToolkitOptions
       {
-        FfMpegPath = ffMpegPath
+        FfMpegPath = ffMpegPath,
+        FfProbePath = ffMpegProbePath
       };
       var fileSystem = new FileSystem();
       var ffProcessFactory = new FfProcessFactory(options, fileSystem);
